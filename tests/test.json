@@ -1,0 +1,57 @@
+[
+  {
+    "method": "noReturn",
+    "params": [],
+    "expects": true
+  },
+  {
+    "method": "undefined",
+    "params": [],
+    "result": "undefined",
+    "expects": true
+  },
+  {
+    "method": "true",
+    "params": [],
+    "result": true,
+    "expects": true
+  },
+  {
+    "method": "false",
+    "params": [],
+    "result": false,
+    "expects": false
+  },
+  {
+    "method": "emptyObject",
+    "params": [],
+    "result": {},
+    "expects": {}
+  },
+  {
+    "method": "object",
+    "params": [],
+    "result": {
+      "test": "test",
+      "number":  1,
+      "bool": false
+    },
+    "expects": {
+      "test": "test",
+      "number":  1,
+      "bool": false
+    }
+  },
+  {
+    "method": "emptyArray",
+    "params": [],
+    "result": [],
+    "expects": []
+  },
+  {
+    "method": "array",
+    "params": [],
+    "result": [1, "test", true],
+    "expects": [1, "test", true]
+  }
+]
