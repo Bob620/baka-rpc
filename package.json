@@ -1,0 +1,23 @@
+{
+  "name": "baka-rpc",
+  "version": "1.0.0",
+  "description": "Easy to use json-rpc client/server using promises",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bob620/baka-rpc.git"
+  },
+  "keywords": [
+    "json-rpc",
+    "json-rpc2"
+  ],
+  "author": "Bob620",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bob620/baka-rpc/issues"
+  },
+  "homepage": "https://github.com/Bob620/baka-rpc#readme"
+}

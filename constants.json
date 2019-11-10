@@ -1,0 +1,14 @@
+{
+  "JSON_RPC_VERSION": "2.0",
+  "errors": {
+    "IN_STREAM_CLOSED": "BakaRPC.inStreamClosed",
+    "OUT_STREAM_CLOSED": "BakaRPC.outStreamClosed",
+    "IN_STREAM_ERROR": "BakaRPC.outStreamError",
+    "OUT_STREAM_ERROR": "BakaRPC.outStreamError",
+    "STREAM_CLOSED": "BakaRPC.streamClosed",
+    "STREAM_ERROR": "BakaRPC.streamError",
+    "ERROR_WITH_NO_ID": "BakaRPC.errorNoId",
+    "RESPONSE_WITH_UNKNOWN_ID": "BakaRPC.responseWithUnknownId",
+    "METHOD_ERROR": "BakaRPC.methodError"
+  }
+}
