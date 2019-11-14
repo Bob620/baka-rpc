@@ -38,22 +38,23 @@ function serializeParams(params=[], expectedParams=[]) {
 }
 
 class BakaRPC {
-	constructor(inStream = process.stdin, outStream = process.stdout, uuid=Uuid.generateV4()) {
+	constructor(inStream = process.stdin, outStream = process.stdout, {uuid=Uuid.generateV4(), appendNewline=false}) {
 		this.data = {
 			uuid,
 			inStream,
 			outStream,
 			methods: new Map(),
 			awaiting: new Map(),
-			batches: []
+			batches: [],
+			appendNewline
 		};
 
 		this.backend = {
 			writeObject: str => {
 				if (typeof str === 'object')
-					this.data.outStream.write(JSON.stringify(str));
+					this.data.outStream.write(`${JSON.stringify(str)}${this.data.appendNewline ? '\n' : ''}`);
 				else
-					this.data.outStream.write(str);
+					this.data.outStream.write(`${str}${this.data.appendNewline ? '\n' : ''}`);
 			},
 
 			handleNotification: ({method, params = undefined}) => {

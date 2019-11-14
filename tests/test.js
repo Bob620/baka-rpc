@@ -4,7 +4,7 @@ const { BakaRPC, constants} = require('../index.js');
 
 const tests = require('./test.json');
 
-const client = spawn('/usr/bin/node', ['./tests/client.js'], {
+const client = spawn('node', ['./tests/client.js'], {
 	stdio: ['pipe', 'pipe', 'inherit']
 });
 
