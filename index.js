@@ -72,7 +72,15 @@ class BakaRPC {
 						const {call, params: expectedParams} = this.data.methods.get(method);
 						try {
 							if (typeof params === 'object') {
-								const result = await call(...serializeParams(params, expectedParams));
+								let finalParams;
+
+								try {
+									finalParams = serializeParams(params, expectedParams);
+								} catch (e) {
+									return errors.rpc.INVALID_PARAMS(id);
+								}
+
+								const result = await call(...finalParams);
 
 								return {
 									jsonrpc: constants.JSON_RPC_VERSION,
@@ -80,7 +88,15 @@ class BakaRPC {
 									id
 								};
 							} else {
-								const result = await call(...serializeParams([], expectedParams));
+								let finalParams;
+
+								try {
+									finalParams = serializeParams([], expectedParams);
+								} catch (e) {
+									return errors.rpc.INVALID_PARAMS(id);
+								}
+
+								const result = await call(...finalParams);
 
 								return {
 									jsonrpc: constants.JSON_RPC_VERSION,
@@ -88,9 +104,9 @@ class BakaRPC {
 									id
 								};
 							}
-						} catch(err) {}
-
-						return errors.rpc.INVALID_PARAMS(id);
+						} catch(err) {
+							return errors.rpc.METHOD_ERROR(id);
+						}
 					} catch(err) {
 						if (this.data.methods.has(constants.errors.METHOD_ERROR)) {
 							const save = await this.data.methods.get(constants.errors.METHOD_ERROR).call(method, err);
