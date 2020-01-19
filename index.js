@@ -72,7 +72,7 @@ class BakaRPC {
 						const {call, params: expectedParams} = this.data.methods.get(method);
 						try {
 							if (typeof params === 'object') {
-								const result = call(...serializeParams(params, expectedParams));
+								const result = await call(...serializeParams(params, expectedParams));
 
 								return {
 									jsonrpc: constants.JSON_RPC_VERSION,
@@ -80,7 +80,7 @@ class BakaRPC {
 									id
 								};
 							} else {
-								const result = call(...serializeParams([], expectedParams));
+								const result = await call(...serializeParams([], expectedParams));
 
 								return {
 									jsonrpc: constants.JSON_RPC_VERSION,
